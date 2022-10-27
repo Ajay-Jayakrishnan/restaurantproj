@@ -1,17 +1,37 @@
 import React from 'react'
-import{Nav,Navbar,Container} from 'react-bootstrap'
-
+import{Navbar,Container} from 'react-bootstrap'
+import { useEffect,useState } from 'react'
+import './Header.css'
 function Header() {
+
+
+const [headstyle,sethead]=useState(false)
+
+  useEffect(() => {
+    
+    window.addEventListener('scroll',()=>{
+      if (window.scrollY>100) {
+        sethead(true)
+      } else {
+    sethead(false)
+      }
+      return()=>{
+        window.removeEventListener("scroll",()=>{
+  
+        })
+      }
+    })
+  
+    
+  }, [])
+  
+
   return (
     <div>
-      <Navbar bg="primary" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
+      <Navbar  >
+        <Container fluid style={{display:"flex",alignItems:"center"}} className={`trans ${headstyle && 'black'} `}>
+          <Navbar.Brand  href="/" ><h3 style={{fontWeight:"bold"}} >Yummy</h3></Navbar.Brand>
+          
         </Container>
       </Navbar>
     </div>

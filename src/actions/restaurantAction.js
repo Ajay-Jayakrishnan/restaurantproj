@@ -3,7 +3,7 @@ import axios from "axios";
 export const listRestaurants = () =>async(dispatch)=>{
 
 try{
-    const {data} = axios.get('/restaurant.json')
+    const {data} = await axios.get('./restaurants.json')
    dispatch(
     {
         type:RESTAURANT_lIST_SUCCESS,payload:data.restaurants
@@ -13,7 +13,7 @@ try{
 catch(error){
     dispatch(
         {
-            type:RESTAURANT_lIST_FAIL,payload:error
+            type:RESTAURANT_lIST_FAIL,error:error
         }
     )
 }

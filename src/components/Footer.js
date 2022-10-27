@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer>
         <Row className='footer'>
-            <Col className='py-1 text-center ' >
+            <Col className='py-1 text-center ' style={{backgroundColor:"black",marginTop:"10px"}} >
                 Copyright &copy; Restaurants
             </Col>
         </Row>
